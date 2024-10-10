@@ -89,6 +89,7 @@ Widget spaceH42 = const SizedBox(height: 42);
 Widget spaceH44 = const SizedBox(height: 44);
 
 Widget spaceH46 = const SizedBox(height: 46);
+Widget spaceH48 = const SizedBox(height: 48);
 
 Widget spaceH50 = const SizedBox(height: 50);
 

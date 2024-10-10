@@ -24,7 +24,7 @@ class VideoTutorialsWidget extends StatelessWidget {
           Positioned(bottom: 0, child: const CircleGradientBlur()),
           Column(
             children: [
-              GradientText(
+              const GradientText(
                 text: "Galaxy\nVideo Tutorials",
                 style: AppStyle.textHeader,
                 gradient: AppColor.gradientc_310D0c_31D0D0,

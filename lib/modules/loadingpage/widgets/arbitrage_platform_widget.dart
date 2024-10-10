@@ -5,6 +5,7 @@ import 'package:galaxy_web3/app/constants/app_style.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
 import 'package:galaxy_web3/app/core/widgets/button/custom_button.dart';
 import 'package:galaxy_web3/app/core/widgets/card/model/information.dart';
+import 'package:galaxy_web3/app/core/widgets/gradient_icon_custom.dart';
 import 'package:galaxy_web3/app/core/widgets/text/gradient_text.dart';
 import 'package:galaxy_web3/gen/assets.gen.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
@@ -49,23 +50,8 @@ class ArbitragePlatform extends StatelessWidget {
       top: 0,
       left: 0,
       right: 0,
-      child: Container(
-        width: 52.0,
-        height: 52.0,
-        padding: const EdgeInsets.all(12.0),
-        decoration: BoxDecoration(
-            gradient: AppColor.gradientc_310D0c_31D0D0,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                  offset: const Offset(0, 4),
-                  blurRadius: 24.0,
-                  spreadRadius: 0,
-                  color: AppColor.c_DC349E.withOpacity(0.5))
-            ]),
-        child: SvgPicture.asset(
-          profileUtils[index].icon,
-        ),
+      child: GradientIconCustom(
+        iconPath: profileUtils[index].icon,
       ),
     );
   }

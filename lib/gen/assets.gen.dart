@@ -16,8 +16,26 @@ class $AssetsIconsGen {
   AssetGenImage get arrowRightFill =>
       const AssetGenImage('assets/icons/arrow_right_fill.png');
 
+  /// File path: assets/icons/consistebtly_low_icon.svg
+  String get consistebtlyLowIcon => 'assets/icons/consistebtly_low_icon.svg';
+
+  /// File path: assets/icons/interoperability.svg
+  String get interoperability => 'assets/icons/interoperability.svg';
+
+  /// File path: assets/icons/introduce_icon.svg
+  String get introduceIcon => 'assets/icons/introduce_icon.svg';
+
+  /// File path: assets/icons/process_icon.svg
+  String get processIcon => 'assets/icons/process_icon.svg';
+
   /// List of all assets
-  List<AssetGenImage> get values => [arrowRightFill];
+  List<dynamic> get values => [
+        arrowRightFill,
+        consistebtlyLowIcon,
+        interoperability,
+        introduceIcon,
+        processIcon
+      ];
 }
 
 class $AssetsImagesGen {

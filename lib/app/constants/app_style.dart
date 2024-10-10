@@ -14,12 +14,17 @@ import 'package:google_fonts/google_fonts.dart';
 class AppStyle {
   AppStyle._();
 
-  static final textHeader = TextStyle(
+  static const textHeader = TextStyle(
     fontSize: 40,
     fontWeight: FontWeight.w600,
   );
-  static final textDescription = TextStyle(
+  static const textDescription = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w400,
   );
+
+  static const textTitle = TextStyle(
+      fontSize: 24.0, fontWeight: FontWeight.w600, color: AppColor.whiteColor);
+  static const textContent = TextStyle(
+      fontSize: 14.0, fontWeight: FontWeight.w400, color: AppColor.grey300);
 }

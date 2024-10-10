@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:galaxy_web3/app/constants/app_color.dart';
 import 'package:galaxy_web3/app/constants/app_style.dart';
-import 'package:galaxy_web3/app/core/models/instant_profits.dart';
+import 'package:galaxy_web3/app/core/widgets/page_indicator_custom.dart';
+import 'package:galaxy_web3/app/models/instant_profits.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
 import 'package:galaxy_web3/app/core/widgets/button/custom_button.dart';
 import 'package:galaxy_web3/app/core/widgets/button/page_navigation_button.dart';
@@ -84,33 +85,19 @@ class InstantProfitsWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         spaceH36,
-                        Text(
-                          title,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.w600,
-                              color: AppColor.whiteColor),
-                        ),
+                        Text(title,
+                            textAlign: TextAlign.center,
+                            style: AppStyle.textTitle),
                         const SizedBox(height: 8.0),
                         Text(
                           content,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.whiteColor),
+                          style: AppStyle.textContent,
                         ),
                         const Spacer(),
-                        SmoothPageIndicator(
-                          controller: pageController,
+                        PageIndicatorCustom(
+                          pageController: pageController,
                           count: instantProfits.length,
-                          effect: WormEffect(
-                            dotColor: AppColor.whiteColor.withOpacity(0.2),
-                            activeDotColor: AppColor.whiteColor,
-                            dotHeight: 8.0,
-                            dotWidth: 8.0,
-                          ),
                         ),
                         spaceH24,
                         CustomButton(
