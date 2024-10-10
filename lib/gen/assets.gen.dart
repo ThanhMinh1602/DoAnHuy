@@ -53,6 +53,13 @@ class $AssetsImagesGen {
   /// File path: assets/images/icon_menu.svg
   String get iconMenu => 'assets/images/icon_menu.svg';
 
+  /// File path: assets/images/instant_proffit_bgr.svg
+  String get instantProffitBgr => 'assets/images/instant_proffit_bgr.svg';
+
+  /// File path: assets/images/instant_profits_png.png
+  AssetGenImage get instantProfitsPng =>
+      const AssetGenImage('assets/images/instant_profits_png.png');
+
   /// File path: assets/images/introduce.png
   AssetGenImage get introduce =>
       const AssetGenImage('assets/images/introduce.png');
@@ -95,6 +102,8 @@ class $AssetsImagesGen {
         headerbanner,
         highLeverage,
         iconMenu,
+        instantProffitBgr,
+        instantProfitsPng,
         introduce,
         logo,
         metamaskSeeklogo,

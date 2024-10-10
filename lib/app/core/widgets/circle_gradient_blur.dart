@@ -9,13 +9,13 @@ class CircleGradientBlur extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ImageFiltered(
-      enabled: true,
-      imageFilter: ImageFilter.blur(
-        sigmaX: 80.0,
-        sigmaY: 80.0,
-        tileMode: TileMode.decal,
-      ),
+      return ImageFiltered(
+        enabled: true,
+        imageFilter: ImageFilter.blur(
+          sigmaX: 80.0,
+          sigmaY: 80.0,
+          tileMode: TileMode.decal,
+        ),
       child: Container(
         width: 220,
         height: 220,

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:galaxy_web3/app/routes/router_config.dart';
 import 'package:galaxy_web3/app/routes/router_page.dart';
-import 'package:galaxy_web3/modules/loadingpage/loading_page_srceen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

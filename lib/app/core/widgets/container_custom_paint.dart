@@ -1,3 +1,4 @@
+import 'dart:ui'; // Thư viện cần thiết cho BackdropFilter
 import 'package:flutter/material.dart';
 
 class ContainerCustomPaint extends StatelessWidget {
@@ -10,38 +11,77 @@ class ContainerCustomPaint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      size: Size(screenWidth, 542),
-      painter: TrapezoidPainter(),
+    return Stack(
+      children: [
+        ClipPath(
+          clipper: TrapezoidClipper(),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
+            child: Container(
+              width: screenWidth,
+              height: 542,
+              color: Colors.transparent, // Đảm bảo trong suốt
+            ),
+          ),
+        ),
+        ClipPath(
+          clipper: TrapezoidClipper(),
+          child: CustomPaint(
+            size: Size(screenWidth, 542),
+            painter: TrapezoidPainter(), // CustomPainter cho hình thang phía trên
+          ),
+        ),
+      ],
     );
+  }
+}
+
+// Custom Clipper để tạo hình thang
+class TrapezoidClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.moveTo(0, size.height);
+    path.lineTo(0, size.height * 0.2);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
   }
 }
 
 class TrapezoidPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
+    // Tạo gradient cho hình thang
+    final gradient = LinearGradient(
+      colors: [
+        Colors.white.withOpacity(0.05), // Màu bắt đầu
+        Colors.white.withOpacity(0.02), // Màu kết thúc
+      ],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    );
+
+    // Tạo paint với gradient
     final paint = Paint()
-      ..color = Colors.blue
-      ..style = PaintingStyle.fill;
+      ..shader = gradient.createShader(Rect.fromLTWH(0, 0, size.width, size.height));
 
     final path = Path();
-
-    // Điểm bắt đầu (top left)
+    
+    // Định nghĩa hình thang
     path.moveTo(0, size.height);
-
-    // Đường từ bottom left đến top left (cạnh vuông)
     path.lineTo(0, size.height * 0.2);
-
-    // Đường từ top left đến top right (cạnh trên nghiêng)
     path.lineTo(size.width, 0);
-
-    // Đường từ top right đến bottom right (cạnh vuông)
     path.lineTo(size.width, size.height);
-
-    // Kết thúc và khép kín hình
     path.close();
 
-    // Vẽ hình thang trên canvas
+    // Vẽ hình thang trên canvas với gradient
     canvas.drawPath(path, paint);
   }
 
