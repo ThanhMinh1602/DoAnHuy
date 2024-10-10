@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:galaxy_web3/app/constants/app_color.dart';
-import 'package:galaxy_web3/app/constants/app_style.dart';
-import 'package:galaxy_web3/app/core/widgets/appbar/app_bar_cuastom.dart';
 import 'package:galaxy_web3/app/core/widgets/button/custom_button.dart';
-import 'package:galaxy_web3/app/core/widgets/card/model/information.dart';
-import 'package:galaxy_web3/app/core/widgets/text/gradient_text.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
 import 'package:galaxy_web3/gen/assets.gen.dart';
 import 'package:galaxy_web3/modules/loadingpage/widgets/arbitrage_platform_widget.dart';
 import 'package:galaxy_web3/modules/loadingpage/widgets/instant_profits_widget.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/power_lowest_network_fees_widget.dart';
 import 'package:galaxy_web3/modules/loadingpage/widgets/video_tutorials_widget.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 class LoadingPageSrceen extends StatefulWidget {
   const LoadingPageSrceen({super.key});
@@ -31,7 +27,8 @@ class _LoadingPageSrceenState extends State<LoadingPageSrceen> {
           spaceH18,
           const ArbitragePlatform(),
           const VideoTutorialsWidget(),
-          const InstantProfitsWidget()
+          InstantProfitsWidget(),
+          const PowerLowestNetworkFeesWidget()
         ],
       ),
     );

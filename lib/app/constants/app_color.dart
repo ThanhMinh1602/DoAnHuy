@@ -17,6 +17,7 @@ class AppColor {
   static const accentLight = Color(0xFFB3F5FC);
   static const accentDark = Color(0xFF03ACF2);
   static const errorColor = Color(0xFFE53935);
+  static const whiteColor = Color(0xffffffff);
 
   static const c_DC349E = Color(0xFFDC349E);
   static const c_31D0D0 = Color(0xFF31D0D0);

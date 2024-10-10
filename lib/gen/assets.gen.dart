@@ -73,9 +73,18 @@ class $AssetsImagesGen {
   /// File path: assets/images/metamask_text.svg
   String get metamaskText => 'assets/images/metamask_text.svg';
 
+  /// File path: assets/images/next_page.svg
+  String get nextPage => 'assets/images/next_page.svg';
+
   /// File path: assets/images/own_your_data.png
   AssetGenImage get ownYourData =>
       const AssetGenImage('assets/images/own_your_data.png');
+
+  /// File path: assets/images/polygon.svg
+  String get polygon => 'assets/images/polygon.svg';
+
+  /// File path: assets/images/previous_page_icon.svg
+  String get previousPageIcon => 'assets/images/previous_page_icon.svg';
 
   /// File path: assets/images/trading _opportunities.svg
   String get tradingOpportunities => 'assets/images/trading _opportunities.svg';
@@ -108,7 +117,10 @@ class $AssetsImagesGen {
         logo,
         metamaskSeeklogo,
         metamaskText,
+        nextPage,
         ownYourData,
+        polygon,
+        previousPageIcon,
         tradingOpportunities,
         transparencySecurity,
         videoPlayer,

@@ -2,12 +2,14 @@ import 'dart:ui'; // Thư viện cần thiết cho BackdropFilter
 import 'package:flutter/material.dart';
 
 class ContainerCustomPaint extends StatelessWidget {
+  final double screenWidth;
+  final Widget? child;
+
   const ContainerCustomPaint({
     super.key,
     required this.screenWidth,
+    this.child,
   });
-
-  final double screenWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class ContainerCustomPaint extends StatelessWidget {
             child: Container(
               width: screenWidth,
               height: 542,
-              color: Colors.transparent, // Đảm bảo trong suốt
+              color: Colors.transparent,
             ),
           ),
         ),
@@ -28,15 +30,15 @@ class ContainerCustomPaint extends StatelessWidget {
           clipper: TrapezoidClipper(),
           child: CustomPaint(
             size: Size(screenWidth, 542),
-            painter: TrapezoidPainter(), // CustomPainter cho hình thang phía trên
+            painter: TrapezoidPainter(),
           ),
         ),
+        Positioned.fill(top: 60.0, child: child ?? Container()),
       ],
     );
   }
 }
 
-// Custom Clipper để tạo hình thang
 class TrapezoidClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
@@ -70,10 +72,11 @@ class TrapezoidPainter extends CustomPainter {
 
     // Tạo paint với gradient
     final paint = Paint()
-      ..shader = gradient.createShader(Rect.fromLTWH(0, 0, size.width, size.height));
+      ..shader =
+          gradient.createShader(Rect.fromLTWH(0, 0, size.width, size.height));
 
     final path = Path();
-    
+
     // Định nghĩa hình thang
     path.moveTo(0, size.height);
     path.lineTo(0, size.height * 0.2);
