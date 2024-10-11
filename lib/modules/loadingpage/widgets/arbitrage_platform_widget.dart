@@ -51,7 +51,7 @@ class ArbitragePlatform extends StatelessWidget {
       left: 0,
       right: 0,
       child: GradientIconCustom(
-        iconPath: profileUtils[index].icon,
+        iconPath: profileUtils[index].imagePath,
       ),
     );
   }
@@ -95,7 +95,7 @@ class ArbitragePlatform extends StatelessWidget {
             spaceH4,
             Text(
                 textAlign: TextAlign.center,
-                profileUtils[index].description,
+                profileUtils[index].content,
                 maxLines: 3,
                 style: const TextStyle(
                   overflow: TextOverflow.ellipsis,
@@ -114,14 +114,14 @@ class ArbitragePlatform extends StatelessWidget {
         GradientText(
           text: "The World’s Best ",
           style: AppStyle.textHeader,
-          gradient: AppColor.gradientc_310D0c_31D0D0,
+          gradient: AppColor.buildGradient(),
         ),
         spaceH4,
         Center(
           child: GradientText(
             text: "Arbitrage Platform",
             style: AppStyle.textHeader,
-            gradient: AppColor.gradientc_310D0c_31D0D0,
+            gradient: AppColor.buildGradient(),
           ),
         ),
         spaceH8,
@@ -135,7 +135,7 @@ class ArbitragePlatform extends StatelessWidget {
           btnTxt: 'Join Now',
           width: 128,
           icon: Assets.icons.arrowRightFill.path,
-          gradient: AppColor.gradientc_310D0c_31D0D0,
+          gradient: AppColor.buildGradient(),
           onTap: () {},
         ),
       ],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:galaxy_web3/app/constants/app_color.dart';
-import 'package:galaxy_web3/app/models/instant_profits.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PageIndicatorCustom extends StatelessWidget {

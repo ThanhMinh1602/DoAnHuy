@@ -4,7 +4,8 @@ import 'package:galaxy_web3/app/constants/app_color.dart';
 import 'package:galaxy_web3/app/core/widgets/button/custom_button.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
 import 'package:galaxy_web3/gen/assets.gen.dart';
-import 'package:galaxy_web3/modules/loadingpage/widgets/arbitrage_opportunities_widget.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/protoco_flash_loans_widget.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/opportunities_widget.dart';
 import 'package:galaxy_web3/modules/loadingpage/widgets/arbitrage_platform_widget.dart';
 import 'package:galaxy_web3/modules/loadingpage/widgets/instant_profits_widget.dart';
 import 'package:galaxy_web3/modules/loadingpage/widgets/power_lowest_network_fees_widget.dart';
@@ -30,7 +31,9 @@ class _LoadingPageSrceenState extends State<LoadingPageSrceen> {
           const VideoTutorialsWidget(),
           InstantProfitsWidget(),
           const PowerLowestNetworkFeesWidget(),
-          const ArbitrageOpportunities()
+          const Opportunities(),
+          const ProtocoFlashLoansWidget(),
+          const SizedBox(height: 200)
         ],
       ),
     );

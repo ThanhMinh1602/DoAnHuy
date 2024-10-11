@@ -12,9 +12,17 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/aave_icon.png
+  AssetGenImage get aaveIcon =>
+      const AssetGenImage('assets/icons/aave_icon.png');
+
   /// File path: assets/icons/arrow_right_fill.png
   AssetGenImage get arrowRightFill =>
       const AssetGenImage('assets/icons/arrow_right_fill.png');
+
+  /// File path: assets/icons/coin_icon.png
+  AssetGenImage get coinIcon =>
+      const AssetGenImage('assets/icons/coin_icon.png');
 
   /// File path: assets/icons/consistebtly_low_icon.svg
   String get consistebtlyLowIcon => 'assets/icons/consistebtly_low_icon.svg';
@@ -25,21 +33,40 @@ class $AssetsIconsGen {
   /// File path: assets/icons/introduce_icon.svg
   String get introduceIcon => 'assets/icons/introduce_icon.svg';
 
+  /// File path: assets/icons/link_icon.png
+  AssetGenImage get linkIcon =>
+      const AssetGenImage('assets/icons/link_icon.png');
+
+  /// File path: assets/icons/ltr_arrow_icon.svg
+  String get ltrArrowIcon => 'assets/icons/ltr_arrow_icon.svg';
+
   /// File path: assets/icons/process_icon.svg
   String get processIcon => 'assets/icons/process_icon.svg';
 
+  /// File path: assets/icons/rtl_arrow_icon.svg
+  String get rtlArrowIcon => 'assets/icons/rtl_arrow_icon.svg';
+
   /// List of all assets
   List<dynamic> get values => [
+        aaveIcon,
         arrowRightFill,
+        coinIcon,
         consistebtlyLowIcon,
         interoperability,
         introduceIcon,
-        processIcon
+        linkIcon,
+        ltrArrowIcon,
+        processIcon,
+        rtlArrowIcon
       ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/aave_banner.png
+  AssetGenImage get aaveBanner =>
+      const AssetGenImage('assets/images/aave_banner.png');
 
   /// File path: assets/images/accessibility.svg
   String get accessibility => 'assets/images/accessibility.svg';
@@ -54,6 +81,14 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/blur_gradient.svg
   String get blurGradient => 'assets/images/blur_gradient.svg';
+
+  /// File path: assets/images/decentralized_governance_img.png
+  AssetGenImage get decentralizedGovernanceImg =>
+      const AssetGenImage('assets/images/decentralized_governance_img.png');
+
+  /// File path: assets/images/flash_loans_img.png
+  AssetGenImage get flashLoansImg =>
+      const AssetGenImage('assets/images/flash_loans_img.png');
 
   /// File path: assets/images/fox.png
   AssetGenImage get foxPng => const AssetGenImage('assets/images/fox.png');
@@ -94,6 +129,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/next_page.svg
   String get nextPage => 'assets/images/next_page.svg';
 
+  /// File path: assets/images/open_source_img.png
+  AssetGenImage get openSourceImg =>
+      const AssetGenImage('assets/images/open_source_img.png');
+
   /// File path: assets/images/own_your_data.png
   AssetGenImage get ownYourData =>
       const AssetGenImage('assets/images/own_your_data.png');
@@ -103,6 +142,18 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/previous_page_icon.svg
   String get previousPageIcon => 'assets/images/previous_page_icon.svg';
+
+  /// File path: assets/images/protocol_img.png
+  AssetGenImage get protocolImg =>
+      const AssetGenImage('assets/images/protocol_img.png');
+
+  /// File path: assets/images/reputation_img.png
+  AssetGenImage get reputationImg =>
+      const AssetGenImage('assets/images/reputation_img.png');
+
+  /// File path: assets/images/strong_tokenomics_img.png
+  AssetGenImage get strongTokenomicsImg =>
+      const AssetGenImage('assets/images/strong_tokenomics_img.png');
 
   /// File path: assets/images/trading _opportunities.svg
   String get tradingOpportunities => 'assets/images/trading _opportunities.svg';
@@ -120,10 +171,13 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        aaveBanner,
         accessibility,
         bgrVideoBlurImg,
         blockchainApps,
         blurGradient,
+        decentralizedGovernanceImg,
+        flashLoansImg,
         foxPng,
         foxSvg,
         headerbanner,
@@ -136,9 +190,13 @@ class $AssetsImagesGen {
         metamaskSeeklogo,
         metamaskText,
         nextPage,
+        openSourceImg,
         ownYourData,
         polygon,
         previousPageIcon,
+        protocolImg,
+        reputationImg,
+        strongTokenomicsImg,
         tradingOpportunities,
         transparencySecurity,
         videoPlayer,

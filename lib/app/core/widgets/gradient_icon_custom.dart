@@ -23,7 +23,7 @@ class GradientIconCustom extends StatelessWidget {
         height: height ?? 52.0,
         padding: padding ?? const EdgeInsets.all(12.0),
         decoration: BoxDecoration(
-            gradient: AppColor.gradientc_310D0c_31D0D0,
+            gradient: AppColor.buildGradient(),
             boxShadow: [
               BoxShadow(
                   offset: const Offset(0, 4),

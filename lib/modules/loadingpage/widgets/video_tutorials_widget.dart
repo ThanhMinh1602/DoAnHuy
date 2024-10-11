@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:galaxy_web3/app/constants/app_color.dart';
 import 'package:galaxy_web3/app/constants/app_style.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
@@ -24,10 +21,10 @@ class VideoTutorialsWidget extends StatelessWidget {
           Positioned(bottom: 0, child: const CircleGradientBlur()),
           Column(
             children: [
-              const GradientText(
+              GradientText(
                 text: "Galaxy\nVideo Tutorials",
                 style: AppStyle.textHeader,
-                gradient: AppColor.gradientc_310D0c_31D0D0,
+                gradient: AppColor.buildGradient(),
               ),
               spaceH24,
               Image.asset(

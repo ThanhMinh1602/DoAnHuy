@@ -4,14 +4,14 @@ import 'package:galaxy_web3/app/constants/app_color.dart';
 import 'package:galaxy_web3/app/constants/app_style.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
 import 'package:galaxy_web3/app/core/widgets/button/custom_button.dart';
+import 'package:galaxy_web3/app/core/widgets/card/card_custom.dart';
+import 'package:galaxy_web3/app/core/widgets/card/model/information.dart';
 import 'package:galaxy_web3/app/core/widgets/circle_gradient_blur.dart';
 import 'package:galaxy_web3/app/core/widgets/gradient_icon_custom.dart';
 import 'package:galaxy_web3/app/core/widgets/page_indicator_custom.dart';
 import 'package:galaxy_web3/app/core/widgets/text/gradient_text.dart';
-import 'package:galaxy_web3/app/models/power_lowest_network_fees_model.dart';
 import 'package:galaxy_web3/gen/assets.gen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 // ignore: must_be_immutable
 class PowerLowestNetworkFeesWidget extends StatefulWidget {
@@ -32,10 +32,10 @@ class _PowerLowestNetworkFeesWidgetState
         spaceH46,
         SvgPicture.asset(Assets.images.polygon),
         spaceH12,
-        const GradientText(
+        GradientText(
           text: "The Power of\nLowest Network Fees",
           style: AppStyle.textHeader,
-          gradient: AppColor.gradientc_310D0c_31D0D0,
+          gradient: AppColor.buildGradient(),
         ),
         spaceH24,
         Stack(
@@ -53,7 +53,7 @@ class _PowerLowestNetworkFeesWidgetState
           btnTxt: 'Explore'.toUpperCase(),
           width: 153,
           icon: Assets.icons.arrowRightFill.path,
-          gradient: AppColor.gradientc_310D0c_31D0D0,
+          gradient: AppColor.buildGradient(),
           onTap: () {},
         ),
         spaceH48
@@ -81,7 +81,9 @@ class _PowerLowestNetworkFeesWidgetState
         enlargeFactor: 0.3,
         enableInfiniteScroll: true,
         scrollDirection: Axis.horizontal,
-        autoPlay: false,
+        autoPlay: true,
+        autoPlayAnimationDuration: const Duration(seconds: 1),
+        autoPlayCurve: Curves.linear,
         onPageChanged: (index, reason) {
           pageIndex = index;
           setState(() {});
@@ -96,40 +98,9 @@ class _PowerLowestNetworkFeesWidgetState
       required String iconPath}) {
     return Stack(
       children: [
-        Container(
-          margin: const EdgeInsets.only(top: 20),
-          padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 16.0),
-          decoration: BoxDecoration(
-            border: GradientBoxBorder(
-              width: 1.0,
-              gradient: LinearGradient(colors: [
-                AppColor.c_31D0D0.withOpacity(0.2),
-                AppColor.c_DC349E.withOpacity(0.2)
-              ]),
-            ),
-            borderRadius: BorderRadius.circular(16.0),
-            gradient: LinearGradient(
-              colors: [
-                AppColor.c_31D0D0.withOpacity(0.1),
-                AppColor.c_DC349E.withOpacity(0.1)
-              ],
-            ),
-          ),
-          child: Column(
-            children: [
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: AppStyle.textTitle,
-              ),
-              const SizedBox(height: 8.0),
-              Text(
-                content,
-                textAlign: TextAlign.center,
-                style: AppStyle.textContent,
-              ),
-            ],
-          ),
+        CardCustom(
+          title: title,
+          content: content,
         ),
         Positioned(
           top: 0,

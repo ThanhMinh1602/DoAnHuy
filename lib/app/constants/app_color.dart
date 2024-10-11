@@ -18,14 +18,27 @@ class AppColor {
   static const accentDark = Color(0xFF03ACF2);
   static const errorColor = Color(0xFFE53935);
   static const whiteColor = Color(0xffffffff);
+  static const green500 = Color(0xff4CAF50);
   static const grey300 = Color(0xffE0E0E0);
 
   static const c_DC349E = Color(0xFFDC349E);
   static const c_31D0D0 = Color(0xFF31D0D0);
-
+  static const c_111D1B = Color(0xFF111D1B);
   static const c_09090C = Color(0xFF09090C);
 
-  static const gradientc_310D0c_31D0D0 = LinearGradient(
-    colors: [AppColor.c_31D0D0, AppColor.c_DC349E],
-  );
+  static LinearGradient buildGradient(
+      {double? opacity,
+      AlignmentGeometry? begin,
+      AlignmentGeometry? end,
+      List<Color>? colors}) {
+    return LinearGradient(
+      begin: begin ?? Alignment.centerLeft,
+      end: end ?? Alignment.centerRight,
+      colors: colors ??
+          [
+            AppColor.c_31D0D0.withOpacity(opacity ?? 1),
+            AppColor.c_DC349E.withOpacity(opacity ?? 1)
+          ],
+    );
+  }
 }
