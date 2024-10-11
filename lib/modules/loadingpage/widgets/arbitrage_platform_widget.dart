@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:galaxy_web3/app/constants/app_color.dart';
 import 'package:galaxy_web3/app/constants/app_style.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
-import 'package:galaxy_web3/app/core/widgets/button/custom_button.dart';
 import 'package:galaxy_web3/app/core/widgets/card/model/information.dart';
 import 'package:galaxy_web3/app/core/widgets/gradient_icon_custom.dart';
 import 'package:galaxy_web3/app/core/widgets/text/gradient_text.dart';
 import 'package:galaxy_web3/gen/assets.gen.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/explore_button.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 class ArbitragePlatform extends StatelessWidget {
@@ -31,7 +30,7 @@ class ArbitragePlatform extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
-              mainAxisExtent: 180),
+              mainAxisExtent: 200),
           itemBuilder: (context, index) {
             return SizedBox(
               height: 206.0,
@@ -131,13 +130,10 @@ class ArbitragePlatform extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontSize: 18),
         ),
         spaceH8,
-        CustomButton(
-          btnTxt: 'Join Now',
-          width: 128,
-          icon: Assets.icons.arrowRightFill.path,
-          gradient: AppColor.buildGradient(),
+        ExploreButton(
+          title: 'Join Now',
           onTap: () {},
-        ),
+        )
       ],
     );
   }

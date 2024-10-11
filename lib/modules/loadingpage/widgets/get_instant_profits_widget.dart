@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:galaxy_web3/app/constants/app_color.dart';
@@ -5,17 +7,51 @@ import 'package:galaxy_web3/app/constants/app_style.dart';
 import 'package:galaxy_web3/app/core/widgets/card/model/information.dart';
 import 'package:galaxy_web3/app/core/widgets/page_indicator_custom.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
-import 'package:galaxy_web3/app/core/widgets/button/custom_button.dart';
 import 'package:galaxy_web3/app/core/widgets/button/page_navigation_button.dart';
 import 'package:galaxy_web3/app/core/widgets/circle_gradient_blur.dart';
 import 'package:galaxy_web3/app/core/widgets/container_custom_paint.dart';
 import 'package:galaxy_web3/app/core/widgets/text/gradient_text.dart';
 import 'package:galaxy_web3/gen/assets.gen.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/explore_button.dart';
 
 // ignore: must_be_immutable
-class InstantProfitsWidget extends StatelessWidget {
-  InstantProfitsWidget({super.key});
-  PageController pageController = PageController();
+class GetInstantProfitsWidget extends StatefulWidget {
+  const GetInstantProfitsWidget({super.key});
+
+  @override
+  State<GetInstantProfitsWidget> createState() =>
+      _GetInstantProfitsWidgetState();
+}
+
+class _GetInstantProfitsWidgetState extends State<GetInstantProfitsWidget> {
+  late PageController pageController;
+  late Timer timer;
+  int currentPage = 0;
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(initialPage: 0);
+    timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
+      if (currentPage < instantProfits.length - 1) {
+        currentPage++;
+      } else {
+        currentPage = 0;
+      }
+      pageController.animateToPage(
+        currentPage,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -99,11 +135,7 @@ class InstantProfitsWidget extends StatelessWidget {
                           count: instantProfits.length,
                         ),
                         spaceH24,
-                        CustomButton(
-                          btnTxt: 'Explore'.toUpperCase(),
-                          width: 153,
-                          icon: Assets.icons.arrowRightFill.path,
-                          gradient: AppColor.buildGradient(),
+                        ExploreButton(
                           onTap: () {},
                         ),
                         const SizedBox(height: 52.0)

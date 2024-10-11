@@ -58,7 +58,7 @@ class ProfitCardCustom extends StatelessWidget {
           spaceH2,
           Text(
             'Profit: $profit%',
-            style: const TextStyle(
+            style: TextStyle(
                 fontSize: 12.0, color: AppColor.green500, fontWeight: bold),
           )
         ],

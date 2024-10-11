@@ -12,6 +12,7 @@ import 'package:galaxy_web3/app/core/widgets/page_indicator_custom.dart';
 import 'package:galaxy_web3/app/core/widgets/text/gradient_text.dart';
 import 'package:galaxy_web3/gen/assets.gen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/explore_button.dart';
 
 // ignore: must_be_immutable
 class PowerLowestNetworkFeesWidget extends StatefulWidget {
@@ -49,11 +50,7 @@ class _PowerLowestNetworkFeesWidgetState
             pageController: PageController(initialPage: pageIndex),
             count: powerLowestNetworkFees.length),
         spaceH24,
-        CustomButton(
-          btnTxt: 'Explore'.toUpperCase(),
-          width: 153,
-          icon: Assets.icons.arrowRightFill.path,
-          gradient: AppColor.buildGradient(),
+        ExploreButton(
           onTap: () {},
         ),
         spaceH48
@@ -73,7 +70,7 @@ class _PowerLowestNetworkFeesWidgetState
         );
       },
       options: CarouselOptions(
-        height: 300,
+        height: 380,
         initialPage: 0,
         viewportFraction: 0.6,
         disableCenter: true,

@@ -6,8 +6,10 @@ import 'package:galaxy_web3/app/constants/app_style.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
 import 'package:galaxy_web3/app/core/widgets/card/card_custom.dart';
 import 'package:galaxy_web3/app/core/widgets/card/model/information.dart';
+import 'package:galaxy_web3/app/core/widgets/page_indicator_custom.dart';
 import 'package:galaxy_web3/app/core/widgets/tabbar/tab_bar_custom.dart';
 import 'package:galaxy_web3/gen/assets.gen.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/explore_button.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 class ProtocoFlashLoansWidget extends StatefulWidget {
@@ -63,7 +65,11 @@ class _ProtocoFlashLoansWidgetState extends State<ProtocoFlashLoansWidget>
       height: 182,
       child: Stack(
         children: [
-          Image.asset(Assets.images.aaveBanner.path),
+          Image.asset(
+            Assets.images.aaveBanner.path,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
           Positioned(
               bottom: 0,
               left: 0,
@@ -98,7 +104,7 @@ class _ProtocoFlashLoansWidgetState extends State<ProtocoFlashLoansWidget>
             style: AppStyle.textTitle,
           ),
           spaceH8,
-          const Text(
+          Text(
             'Aave Protocol is a decentralized '
             'finance (DeFi) platform that functions '
             'on the Ethereum blockchain and enables '
@@ -112,7 +118,15 @@ class _ProtocoFlashLoansWidgetState extends State<ProtocoFlashLoansWidget>
             style: AppStyle.textContent,
           ),
           spaceH24,
-          _buildProtocolCarouselSlider()
+          _buildProtocolCarouselSlider(),
+          spaceH24,
+          PageIndicatorCustom(
+              pageController: PageController(), count: protocls.length),
+          spaceH24,
+          ExploreButton(
+            onTap: () {},
+          ),
+          spaceH24
         ],
       ),
     );
@@ -124,14 +138,18 @@ class _ProtocoFlashLoansWidgetState extends State<ProtocoFlashLoansWidget>
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(height: 16.0),
+          spaceH24,
+          Image.asset(
+            Assets.images.flashLoansImg.path,
+          ),
+          spaceH24,
           const Text(
             'Flash Loans',
             textAlign: TextAlign.center,
             style: AppStyle.textTitle,
           ),
           const SizedBox(height: 8.0),
-          const Text(
+          Text(
             'Flash loans are uncollateralized loans that must be repaid '
             'within the same transaction. They enable users to borrow '
             'assets instantly without any collateral, as long as the '
@@ -140,7 +158,15 @@ class _ProtocoFlashLoansWidgetState extends State<ProtocoFlashLoansWidget>
             style: AppStyle.textContent,
           ),
           spaceH24,
-          _buildFlashLoansCarouselSlider()
+          _buildFlashLoansCarouselSlider(),
+          spaceH24,
+          PageIndicatorCustom(
+              pageController: PageController(), count: flashLoans.length),
+          spaceH24,
+          ExploreButton(
+            onTap: () {},
+          ),
+          spaceH24
         ],
       ),
     );
@@ -159,7 +185,7 @@ class _ProtocoFlashLoansWidgetState extends State<ProtocoFlashLoansWidget>
         );
       },
       options: CarouselOptions(
-        height: 365,
+        height: 400,
         initialPage: 0,
         viewportFraction: 0.8,
         disableCenter: true,

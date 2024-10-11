@@ -3,19 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:galaxy_web3/app/constants/app_color.dart';
 import 'package:galaxy_web3/app/constants/app_style.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
-import 'package:galaxy_web3/app/core/widgets/button/custom_button.dart';
 import 'package:galaxy_web3/app/core/widgets/card/profit_card_custom.dart';
 import 'package:galaxy_web3/app/core/widgets/text/gradient_text.dart';
 import 'package:galaxy_web3/gen/assets.gen.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/explore_button.dart';
 
-class Opportunities extends StatefulWidget {
-  const Opportunities({super.key});
+class ArbitrageOpportunitiesWidget extends StatefulWidget {
+  const ArbitrageOpportunitiesWidget({super.key});
 
   @override
-  State<Opportunities> createState() => _OpportunitiesState();
+  State<ArbitrageOpportunitiesWidget> createState() =>
+      _ArbitrageOpportunitiesWidgetState();
 }
 
-class _OpportunitiesState extends State<Opportunities> {
+class _ArbitrageOpportunitiesWidgetState
+    extends State<ArbitrageOpportunitiesWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,8 +40,8 @@ class _OpportunitiesState extends State<Opportunities> {
                 color: AppColor.whiteColor,
                 fontWeight: FontWeight.bold)),
         spaceH24,
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Text(
               textAlign: TextAlign.center,
               'Identify the fluctuations of crypto pairs every second and filter \n out the crypto pairs with the best spreads. Using \n complex technological algorithms, the system will help \n customers have many trading opportunities with great profits',
@@ -48,13 +50,9 @@ class _OpportunitiesState extends State<Opportunities> {
         spaceH24,
         _buildCarouselSlider(),
         spaceH12,
-        _buildCarouselSlider(),
+        _buildCarouselSlider(reverse: false),
         spaceH24,
-        CustomButton(
-          btnTxt: 'Explore'.toUpperCase(),
-          width: 153,
-          icon: Assets.icons.arrowRightFill.path,
-          gradient: AppColor.buildGradient(),
+        ExploreButton(
           onTap: () {},
         ),
         spaceH48
@@ -63,7 +61,7 @@ class _OpportunitiesState extends State<Opportunities> {
   }
 }
 
-Widget _buildCarouselSlider() {
+Widget _buildCarouselSlider({bool? reverse}) {
   return CarouselSlider.builder(
     itemCount: 5,
     itemBuilder: (context, index, realIndex) {
@@ -75,16 +73,16 @@ Widget _buildCarouselSlider() {
       );
     },
     options: CarouselOptions(
-      height: 100,
-      initialPage: 0,
-      viewportFraction: 0.45,
-      disableCenter: true,
-      enlargeCenterPage: false,
-      enableInfiniteScroll: true,
-      autoPlay: true,
-      autoPlayAnimationDuration: const Duration(seconds: 1),
-      autoPlayCurve: Curves.linear,
-      scrollDirection: Axis.horizontal,
-    ),
+        height: 120,
+        initialPage: 0,
+        viewportFraction: 0.45,
+        disableCenter: true,
+        enlargeCenterPage: false,
+        enableInfiniteScroll: true,
+        autoPlay: true,
+        autoPlayAnimationDuration: const Duration(seconds: 1),
+        autoPlayCurve: Curves.linear,
+        scrollDirection: Axis.horizontal,
+        reverse: reverse ?? true),
   );
 }

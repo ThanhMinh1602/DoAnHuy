@@ -40,7 +40,6 @@ class CardCustom extends StatelessWidget {
             ? CrossAxisAlignment.start
             : CrossAxisAlignment.center,
         children: [
-          // Kiểm tra nếu có hình ảnh hợp lệ
           if (image != null && image!.isNotEmpty)
             Align(
               alignment: Alignment.centerLeft,
@@ -60,6 +59,9 @@ class CardCustom extends StatelessWidget {
                 ? Alignment.centerLeft
                 : Alignment.center,
             child: Text(
+              textAlign: (image != null && image!.isNotEmpty)
+                  ? TextAlign.start
+                  : TextAlign.center,
               title,
               style: titleStyle ?? AppStyle.textTitle,
             ),

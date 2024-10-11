@@ -18,8 +18,12 @@ class AppColor {
   static const accentDark = Color(0xFF03ACF2);
   static const errorColor = Color(0xFFE53935);
   static const whiteColor = Color(0xffffffff);
-  static const green500 = Color(0xff4CAF50);
-  static const grey300 = Color(0xffE0E0E0);
+  static const blue700 = Color(0xff1976D2);
+  static var green500 = Colors.green[500];
+  static var grey200 = Colors.grey[200];
+
+  static var grey300 = Colors.grey[300];
+  static var grey500 = Colors.grey[500];
 
   static const c_DC349E = Color(0xFFDC349E);
   static const c_31D0D0 = Color(0xFF31D0D0);

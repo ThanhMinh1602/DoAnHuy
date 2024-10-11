@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:galaxy_web3/app/constants/app_color.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 // FontWeight.w100 (Thin)
 // FontWeight.w200 (ExtraLight)
@@ -25,6 +24,6 @@ class AppStyle {
 
   static const textTitle = TextStyle(
       fontSize: 24.0, fontWeight: FontWeight.w600, color: AppColor.whiteColor);
-  static const textContent = TextStyle(
+  static TextStyle textContent = TextStyle(
       fontSize: 14.0, fontWeight: FontWeight.w400, color: AppColor.grey300);
 }

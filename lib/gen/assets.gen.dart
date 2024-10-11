@@ -20,12 +20,21 @@ class $AssetsIconsGen {
   AssetGenImage get arrowRightFill =>
       const AssetGenImage('assets/icons/arrow_right_fill.png');
 
+  /// File path: assets/icons/back_video.svg
+  String get backVideo => 'assets/icons/back_video.svg';
+
   /// File path: assets/icons/coin_icon.png
   AssetGenImage get coinIcon =>
       const AssetGenImage('assets/icons/coin_icon.png');
 
   /// File path: assets/icons/consistebtly_low_icon.svg
   String get consistebtlyLowIcon => 'assets/icons/consistebtly_low_icon.svg';
+
+  /// File path: assets/icons/fb_icon.svg
+  String get fbIcon => 'assets/icons/fb_icon.svg';
+
+  /// File path: assets/icons/instagram_icon.svg
+  String get instagramIcon => 'assets/icons/instagram_icon.svg';
 
   /// File path: assets/icons/interoperability.svg
   String get interoperability => 'assets/icons/interoperability.svg';
@@ -40,24 +49,55 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ltr_arrow_icon.svg
   String get ltrArrowIcon => 'assets/icons/ltr_arrow_icon.svg';
 
+  /// File path: assets/icons/medium_icon.svg
+  String get mediumIcon => 'assets/icons/medium_icon.svg';
+
+  /// File path: assets/icons/next_video.svg
+  String get nextVideo => 'assets/icons/next_video.svg';
+
+  /// File path: assets/icons/pause_circle_icon.svg
+  String get pauseCircleIcon => 'assets/icons/pause_circle_icon.svg';
+
+  /// File path: assets/icons/play_circle_icon.svg
+  String get playCircleIcon => 'assets/icons/play_circle_icon.svg';
+
   /// File path: assets/icons/process_icon.svg
   String get processIcon => 'assets/icons/process_icon.svg';
 
   /// File path: assets/icons/rtl_arrow_icon.svg
   String get rtlArrowIcon => 'assets/icons/rtl_arrow_icon.svg';
 
+  /// File path: assets/icons/telegram_icon.svg
+  String get telegramIcon => 'assets/icons/telegram_icon.svg';
+
+  /// File path: assets/icons/x_icon.svg
+  String get xIcon => 'assets/icons/x_icon.svg';
+
+  /// File path: assets/icons/zoom_full_video.svg
+  String get zoomFullVideo => 'assets/icons/zoom_full_video.svg';
+
   /// List of all assets
   List<dynamic> get values => [
         aaveIcon,
         arrowRightFill,
+        backVideo,
         coinIcon,
         consistebtlyLowIcon,
+        fbIcon,
+        instagramIcon,
         interoperability,
         introduceIcon,
         linkIcon,
         ltrArrowIcon,
+        mediumIcon,
+        nextVideo,
+        pauseCircleIcon,
+        playCircleIcon,
         processIcon,
-        rtlArrowIcon
+        rtlArrowIcon,
+        telegramIcon,
+        xIcon,
+        zoomFullVideo
       ];
 }
 
@@ -71,6 +111,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/accessibility.svg
   String get accessibility => 'assets/images/accessibility.svg';
 
+  /// File path: assets/images/banco_central.svg
+  String get bancoCentral => 'assets/images/banco_central.svg';
+
   /// File path: assets/images/bgr_video_blur_img.png
   AssetGenImage get bgrVideoBlurImg =>
       const AssetGenImage('assets/images/bgr_video_blur_img.png');
@@ -82,9 +125,18 @@ class $AssetsImagesGen {
   /// File path: assets/images/blur_gradient.svg
   String get blurGradient => 'assets/images/blur_gradient.svg';
 
+  /// File path: assets/images/centrifuge_svg.svg
+  String get centrifugeSvg => 'assets/images/centrifuge_svg.svg';
+
+  /// File path: assets/images/consensys_svg.svg
+  String get consensysSvg => 'assets/images/consensys_svg.svg';
+
   /// File path: assets/images/decentralized_governance_img.png
   AssetGenImage get decentralizedGovernanceImg =>
       const AssetGenImage('assets/images/decentralized_governance_img.png');
+
+  /// File path: assets/images/fireblocks_svg.svg
+  String get fireblocksSvg => 'assets/images/fireblocks_svg.svg';
 
   /// File path: assets/images/flash_loans_img.png
   AssetGenImage get flashLoansImg =>
@@ -117,8 +169,14 @@ class $AssetsImagesGen {
   AssetGenImage get introduce =>
       const AssetGenImage('assets/images/introduce.png');
 
+  /// File path: assets/images/jp_morgan_chase_svg.svg
+  String get jpMorganChaseSvg => 'assets/images/jp_morgan_chase_svg.svg';
+
   /// File path: assets/images/logo.svg
   String get logo => 'assets/images/logo.svg';
+
+  /// File path: assets/images/mas_svg.svg
+  String get masSvg => 'assets/images/mas_svg.svg';
 
   /// File path: assets/images/metamask_seeklogo.svg
   String get metamaskSeeklogo => 'assets/images/metamask_seeklogo.svg';
@@ -173,10 +231,14 @@ class $AssetsImagesGen {
   List<dynamic> get values => [
         aaveBanner,
         accessibility,
+        bancoCentral,
         bgrVideoBlurImg,
         blockchainApps,
         blurGradient,
+        centrifugeSvg,
+        consensysSvg,
         decentralizedGovernanceImg,
+        fireblocksSvg,
         flashLoansImg,
         foxPng,
         foxSvg,
@@ -186,7 +248,9 @@ class $AssetsImagesGen {
         instantProffitBgr,
         instantProfitsPng,
         introduce,
+        jpMorganChaseSvg,
         logo,
+        masSvg,
         metamaskSeeklogo,
         metamaskText,
         nextPage,

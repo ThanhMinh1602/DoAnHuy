@@ -1,5 +1,174 @@
-import 'dart:ui'; // Thư viện cần thiết cho BackdropFilter
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:galaxy_web3/app/constants/app_color.dart';
+import 'package:galaxy_web3/app/core/utils/font_weight.dart';
+import 'package:galaxy_web3/app/core/utils/spaces.dart';
+import 'package:galaxy_web3/gen/assets.gen.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
+import 'package:video_player/video_player.dart';
+
+class CustomVideoPlayer extends StatefulWidget {
+  const CustomVideoPlayer({super.key});
+
+  @override
+  State<CustomVideoPlayer> createState() => _CustomVideoPlayerState();
+}
+
+class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.network(
+      'https://cdn.pixabay.com/video/2019/04/06/22634-328940142_large.mp4',
+    )..initialize().then((_) {
+        // Video initialized, notify UI
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _controller.value.isInitialized
+          ? _buildVideoPlayer()
+          : const Center(child: CircularProgressIndicator()),
+    );
+  }
+
+  Center _buildVideoPlayer() {
+    return Center(
+      child: AspectRatio(
+        aspectRatio: _controller.value.aspectRatio,
+        child: Stack(
+          children: [
+            VideoPlayer(_controller),
+            Center(child: _buildControlButtons()),
+            _buildBottomControlBar(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Control buttons in the center of the video
+  Widget _buildControlButtons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        IconButton(
+          onPressed: _onPreviousPressed,
+          icon: SvgPicture.asset(Assets.icons.backVideo),
+        ),
+        Stack(
+          children: [
+            const CircleAvatar(
+              radius: 35.0,
+              backgroundColor: AppColor.backgroundColor,
+            ),
+            Container(
+              width: 70.0,
+              height: 70.0,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                border: GradientBoxBorder(
+                  width: 8.0,
+                  gradient: AppColor.buildGradient(),
+                ),
+                shape: BoxShape.circle,
+                gradient: AppColor.buildGradient(opacity: 0.6),
+              ),
+              child: GestureDetector(
+                onTap: _onPlayPausePressed,
+                child: SvgPicture.asset(_controller.value.isPlaying
+                    ? Assets.icons.pauseCircleIcon
+                    : Assets.icons.playCircleIcon),
+              ),
+            ),
+          ],
+        ),
+        IconButton(
+          onPressed: _onNextPressed,
+          icon: SvgPicture.asset(Assets.icons.nextVideo),
+        ),
+      ],
+    );
+  }
+
+  // Bottom control bar with progress indicator and time
+  Widget _buildBottomControlBar() {
+    return Positioned(
+      bottom: 0,
+      left: 12.0,
+      right: 12.0,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ValueListenableBuilder(
+            valueListenable: _controller,
+            builder: (context, VideoPlayerValue value, child) {
+              return Text(
+                '${_formatDuration(value.position)} / ${_formatDuration(value.duration)}',
+                style: const TextStyle(
+                    fontSize: 10.0,
+                    fontWeight: medium,
+                    color: AppColor.whiteColor),
+              );
+            },
+          ),
+          spaceW8,
+          Expanded(
+            child: VideoProgressIndicator(
+              _controller,
+              allowScrubbing: true,
+              colors: const VideoProgressColors(
+                playedColor: AppColor.blue700,
+                bufferedColor: Colors.grey,
+                backgroundColor: Colors.grey,
+              ),
+            ),
+          ),
+          spaceW8,
+          SvgPicture.asset(Assets.icons.zoomFullVideo),
+        ],
+      ),
+    );
+  }
+
+  // Format duration display
+  String _formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final minutes = twoDigits(duration.inMinutes.remainder(60));
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+    return '${duration.inHours > 0 ? '${twoDigits(duration.inHours)}:' : ''}$minutes:$seconds';
+  }
+
+  // Control actions
+  void _onPlayPausePressed() {
+    setState(() {
+      if (_controller.value.isPlaying) {
+        _controller.pause();
+      } else {
+        _controller.play();
+      }
+    });
+  }
+
+  void _onPreviousPressed() {
+    // Implement logic for "Previous" button if needed
+  }
+
+  void _onNextPressed() {
+    // Implement logic for "Next" button if needed
+  }
+}
 
 void main() {
   runApp(const MyApp());
@@ -11,102 +180,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Stack(
-          fit: StackFit.expand,
-          children: [
-            // Background Image
-            Image.network(
-              'https://cdn.pixabay.com/photo/2023/04/20/12/22/globe-7939725_640.jpg', // Replace with your image URL
-              fit: BoxFit.cover,
-            ),
-            // BackdropFilter with dispersion effect
-            BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-              child: Container(
-                color: Colors.black.withOpacity(0), // Ensure transparency
-              ),
-            ),
-            // Trapezoid shape
-            ContainerCustomPaint(
-                screenWidth: MediaQuery.of(context).size.width),
-          ],
-        ),
+      title: 'My Flutter App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: const CustomVideoPlayer(),
     );
-  }
-}
-
-class ContainerCustomPaint extends StatelessWidget {
-  const ContainerCustomPaint({
-    super.key,
-    required this.screenWidth,
-  });
-
-  final double screenWidth;
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomPaint(
-      size: Size(screenWidth, 542),
-      painter: TrapezoidPainter(),
-    );
-  }
-}
-
-class TrapezoidPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    // Tạo gradient cho hình thang
-    final gradient = LinearGradient(
-      colors: [
-        Colors.white.withOpacity(0.05), // Màu bắt đầu
-        Colors.white.withOpacity(0.02), // Màu kết thúc
-      ],
-      begin: Alignment.topLeft, // Vị trí bắt đầu gradient
-      end: Alignment.bottomRight, // Vị trí kết thúc gradient
-    );
-
-    // Tạo paint với gradient
-    final paint = Paint()
-      ..shader =
-          gradient.createShader(Rect.fromLTWH(0, 0, size.width, size.height));
-
-    final path = Path();
-
-    // Điểm bắt đầu (bottom left)
-    path.moveTo(0, size.height);
-
-    // Đường từ bottom left đến top left (cạnh vuông)
-    path.lineTo(0, size.height * 0.2);
-
-    // Đường từ top left đến top right (cạnh trên nghiêng)
-    path.lineTo(size.width, 0);
-
-    // Đường từ top right đến bottom right (cạnh vuông)
-    path.lineTo(size.width, size.height);
-
-    // Kết thúc và khép kín hình
-    path.close();
-
-    // Vẽ hình thang trên canvas với gradient
-    canvas.drawPath(path, paint);
-
-    // Tạo paint cho hiệu ứng blur
-    final paintBlurEffect = Paint()
-      ..color = Colors.transparent // Không màu để chỉ có hiệu ứng blur
-      ..imageFilter = ImageFilter.blur(
-        sigmaX: 500,
-        sigmaY: 500,
-      ); // Điều chỉnh độ mờ
-
-    // Vẽ lại hình thang với hiệu ứng blur
-    canvas.drawPath(path, paintBlurEffect);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
   }
 }

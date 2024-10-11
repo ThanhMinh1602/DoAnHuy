@@ -4,11 +4,13 @@ import 'package:galaxy_web3/app/constants/app_color.dart';
 import 'package:galaxy_web3/app/core/widgets/button/custom_button.dart';
 import 'package:galaxy_web3/app/core/utils/spaces.dart';
 import 'package:galaxy_web3/gen/assets.gen.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/footer_widget.dart';
 import 'package:galaxy_web3/modules/loadingpage/widgets/protoco_flash_loans_widget.dart';
-import 'package:galaxy_web3/modules/loadingpage/widgets/opportunities_widget.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/arbitrage_opportunities_widget.dart';
 import 'package:galaxy_web3/modules/loadingpage/widgets/arbitrage_platform_widget.dart';
-import 'package:galaxy_web3/modules/loadingpage/widgets/instant_profits_widget.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/get_instant_profits_widget.dart';
 import 'package:galaxy_web3/modules/loadingpage/widgets/power_lowest_network_fees_widget.dart';
+import 'package:galaxy_web3/modules/loadingpage/widgets/trusted_by_teams_at_widget.dart';
 import 'package:galaxy_web3/modules/loadingpage/widgets/video_tutorials_widget.dart';
 
 class LoadingPageSrceen extends StatefulWidget {
@@ -29,11 +31,12 @@ class _LoadingPageSrceenState extends State<LoadingPageSrceen> {
           spaceH18,
           const ArbitragePlatform(),
           const VideoTutorialsWidget(),
-          InstantProfitsWidget(),
+          GetInstantProfitsWidget(),
           const PowerLowestNetworkFeesWidget(),
-          const Opportunities(),
+          const ArbitrageOpportunitiesWidget(),
           const ProtocoFlashLoansWidget(),
-          const SizedBox(height: 200)
+          const TrustedByTeamsAtWidget(),
+          const FooterWidget()
         ],
       ),
     );
